@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday ❤️</title>
+
+<style>
+body {
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+h1 {
+  margin-top: 100px;
+  font-size: 40px;
+  animation: fadeIn 3s;
+}
+
+p {
+  font-size: 20px;
+  animation: fadeIn 5s;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: #ff4b5c;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+img {
+  width: 200px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Happy Birthday My Love ❤️</h1>
+<p>You are the best thing that ever happened to me 💖</p>
+
+<img src="your-photo.jpg" alt="us">
+
+<br>
+
+<button onclick="showMessage()">Click Me 🎁</button>
+
+<p id="hiddenMessage" style="display:none; margin-top:20px;">
+I love you more than words can say ❤️ Forever yours 💫
+</p>
+
+<script>
+function showMessage() {
+  document.getElementById("hiddenMessage").style.display = "block";
+}
+</script>
+
+</body>
+</html>
