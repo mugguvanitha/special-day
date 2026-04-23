@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+background:#fad0c4;
+text-align:center;
+font-family:Arial;
+}
+h1{color:white;margin-top:20px;}
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+padding:30px;
+}
+.box{
+background:white;
+padding:30px;
+border-radius:20px;
+cursor:pointer;
+font-size:18px;
+transition:0.3s;
+}
+.box:hover{transform:scale(1.1);}
+</style>
+</head>
+
+<body>
+
+<h1>Choose Your Gifts 🎁</h1>
+
+<div class="grid">
+<div class="box" onclick="go('cake.html')">🎂 Cake</div>
+<div class="box" onclick="go('hug.html')">🤗 Hug</div>
+<div class="box" onclick="go('photos.html')">📸 Photos</div>
+<div class="box" onclick="go('audio.html')">🎤 Audio</div>
+<div class="box" onclick="go('letter.html')">💌 Letter</div>
+<div class="box" onclick="go('kiss.html')">😘 Kiss</div>
+<div class="box" onclick="go('proposal.html')">💍 Proposal</div>
+</div>
+
+<script>
+function go(p){window.location=p;}
+</script>
+
+</body>
+</html>
