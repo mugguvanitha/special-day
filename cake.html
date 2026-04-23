@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center;background:pink;color:white;font-family:Arial;">
+
+<h1>Make a Wish 🎂</h1>
+
+<div id="flame" style="font-size:50px;">🔥</div>
+
+<button onclick="blow()">Blow Candle 💨</button>
+
+<p id="msg"></p>
+
+<audio autoplay loop>
+<source src="assets/music/song.mp3">
+</audio>
+
+<script>
+function blow(){
+document.getElementById("flame").style.display="none";
+document.getElementById("msg").innerHTML="Yayyy 🥳 Wish granted ❤️";
+}
+</script>
+
+</body>
+</html>
