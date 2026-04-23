@@ -1,118 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Special Day ❤️</title>
-
+<title>Hey Pichi ❤️</title>
 <style>
 body {
-  margin: 0;
-  overflow: hidden;
-  font-family: Arial;
-  text-align: center;
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
-  color: white;
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(to right,#ff9a9e,#fad0c4);
+  color:white;
+  font-family:Arial;
+  text-align:center;
 }
-
-h1 {
-  margin-top: 80px;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 10px;
-  font-size: 18px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-#yes {
-  background-color: white;
-  color: #ff4b5c;
-}
-
-#no {
-  background-color: pink;
-}
-
-#msg {
-  margin-top: 20px;
-  font-size: 18px;
-}
-
-.heart {
-  position: fixed;
-  color: red;
-  font-size: 20px;
-  animation: floatUp 5s linear infinite;
-}
-
-@keyframes floatUp {
-  0% {transform: translateY(100vh);}
-  100% {transform: translateY(-10vh);}
-}
+#text {font-size:28px;opacity:0;transition:1s;}
 </style>
-
 </head>
 
 <body>
-
-<h1>Hey Love ❤️</h1>
-
-<h2 id="countdown"></h2>
-
-<p>On your special day… I have a surprise for you 🎁</p>
-<p>Do you want to see it? 😌</p>
-
-<button id="yes" onclick="goNext()">Yes ❤️</button>
-<button id="no" onclick="noClick()">No 😏</button>
-
-<p id="msg"></p>
-
-<!-- Music -->
-<audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
-</audio>
+<div id="text"></div>
 
 <script>
-// Countdown
-let targetDate = new Date("April 26, 2026 00:00:00").getTime();
+let msg=[
+"Hey Pichi ❤️",
+"I made something special for you 😌",
+"Wait for it… 🎁"
+];
+let i=0;
+let t=document.getElementById("text");
 
-let x = setInterval(function() {
-  let now = new Date().getTime();
-  let distance = targetDate - now;
-
-  let days = Math.floor(distance / (1000*60*60*24));
-  let hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
-  let minutes = Math.floor((distance % (1000*60*60))/(1000*60));
-
-  document.getElementById("countdown").innerHTML =
-  days + "d " + hours + "h " + minutes + "m left ❤️";
-
-}, 1000);
-
-// Hearts
-setInterval(() => {
-  let heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  document.body.appendChild(heart);
-
-  setTimeout(() => heart.remove(), 5000);
-}, 300);
-
-// Buttons
-function goNext() {
-  window.location.href = "surprise.html";
+function show(){
+ if(i<msg.length){
+  t.style.opacity=0;
+  setTimeout(()=>{
+   t.innerHTML=msg[i];
+   t.style.opacity=1;
+   i++;
+  },500);
+  setTimeout(show,2500);
+ } else {
+  window.location="second.html";
+ }
 }
-
-function noClick() {
-  document.getElementById("msg").innerHTML =
-  "Aww really? 🥺 You don’t want my gift? I made it with love ❤️";
-}
+show();
 </script>
-
 </body>
 </html>
