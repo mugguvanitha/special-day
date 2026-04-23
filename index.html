@@ -11,27 +11,27 @@ body {
   overflow: hidden;
   font-family: 'Segoe UI', sans-serif;
 
-  /* 🌸 Aesthetic background image */
+  /* 🌸 YOUR BACKGROUND */
   background: url('assets/images/bg.jpg') no-repeat center/cover;
-  backdrop-filter: blur(4px);
 }
 
-/* overlay for softness */
+/* dark overlay */
 .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.35);
 }
 
 /* text container */
 .container {
   position: absolute;
-  top: 20%;
-  left: 10%;
+  top: 18%;
+  left: 8%;
   color: white;
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1.8;
+  width: 70%;
 }
 
 /* each line */
@@ -48,18 +48,41 @@ body {
   }
 }
 
-/* cute image */
+/* 🐱 CAT */
 .cat {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 120px;
+  bottom: 80px;
+  right: 30px;
+  width: 140px;
   animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
   0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* 💖 BUTTONS */
+.buttons {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.9);
+  color: #ff4b7d;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 /* particles */
@@ -86,14 +109,20 @@ body {
 
 <div class="container" id="textContainer"></div>
 
-<!-- 🐱 cute image -->
+<!-- 🐱 cat -->
 <img src="assets/images/cat.gif" class="cat">
+
+<!-- 💖 buttons -->
+<div class="buttons">
+  <button onclick="nextPage()">Next ➡️</button>
+  <button onclick="skip()">Skip ⏭️</button>
+</div>
 
 <script>
 let messages = [
   "Hey Pichi ❤️",
   "I wanted to do something special for you…",
-  "Not just a normal thing 😌",
+  "Not just something normal 😌",
   "Because you are special to me 💖",
   "So I made this… just for you ✨"
 ];
@@ -106,16 +135,24 @@ messages.forEach((msg, i) => {
     div.className = "line";
     div.innerText = msg;
     container.appendChild(div);
-  }, i * 2500); // slow timing
+  }, i * 2500);
 });
 
-// go next after all lines
+// auto next
 setTimeout(() => {
-  window.location.href = "second.html";
+  nextPage();
 }, messages.length * 2500 + 2000);
 
+function nextPage() {
+  window.location.href = "second.html";
+}
+
+function skip() {
+  window.location.href = "gifts.html";
+}
+
 // particles
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 35; i++) {
   let p = document.createElement("div");
   p.className = "particle";
   p.style.left = Math.random() * 100 + "vw";
