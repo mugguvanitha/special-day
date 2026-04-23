@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body style="background:black;color:white;text-align:center;">
+
+<h1>For You 💖</h1>
+<p id="text"></p>
+
+<script>
+let txt="YOUR_LETTER_HERE";
+let i=0;
+
+function type(){
+ if(i<txt.length){
+  document.getElementById("text").innerHTML+=txt[i];
+  i++;
+  setTimeout(type,40);
+ }
+}
+type();
+</script>
+
+</body>
+</html>
