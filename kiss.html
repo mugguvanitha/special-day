@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center;background:#ff9a9e;color:white;">
+
+<h1>Do you want a kiss? 😏</h1>
+
+<button onclick="yes()">Yes ❤️</button>
+<button id="no" onmouseover="move()">No 😜</button>
+
+<video id="vid" width="300" style="display:none;" controls>
+<source src="assets/video/kiss.mp4">
+</video>
+
+<script>
+function yes(){
+document.getElementById("vid").style.display="block";
+}
+
+function move(){
+let b=document.getElementById("no");
+b.style.position="absolute";
+b.style.left=Math.random()*80+"%";
+b.style.top=Math.random()*80+"%";
+}
+</script>
+
+</body>
+</html>
