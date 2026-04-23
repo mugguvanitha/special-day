@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body style="text-align:center;background:black;color:white;">
+
+<h1>Our Memories ❤️</h1>
+
+<img id="img" width="300">
+
+<audio autoplay loop>
+<source src="assets/music/song.mp3">
+</audio>
+
+<script>
+let imgs=[
+"assets/images/1.jpg",
+"assets/images/2.jpg",
+"assets/images/3.jpg"
+];
+let i=0;
+setInterval(()=>{
+document.getElementById("img").src=imgs[i];
+i=(i+1)%imgs.length;
+},2000);
+</script>
+
+</body>
+</html>
