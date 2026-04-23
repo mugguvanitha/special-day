@@ -1,49 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Hey Pichi ❤️</title>
+
 <style>
 body {
-  margin:0;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background: linear-gradient(to right,#ff9a9e,#fad0c4);
-  color:white;
-  font-family:Arial;
-  text-align:center;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #1a0026, #000);
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
 }
-#text {font-size:28px;opacity:0;transition:1s;}
+
+/* Glow text */
+#text {
+  font-size: 32px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 1.5s ease;
+  text-shadow: 0 0 20px #ff4b9a, 0 0 40px #ff4b9a;
+}
+
+.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: pink;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: float 8s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
 </style>
+
 </head>
 
 <body>
+
 <div id="text"></div>
 
 <script>
-let msg=[
-"Hey Pichi ❤️",
-"I made something special for you 😌",
-"Wait for it… 🎁"
+let messages = [
+  "Hey Pichi ❤️",
+  "I didn’t want this to be normal…",
+  "Because you are not normal to me 😌",
+  "You are special… 💖",
+  "So I made something different…",
+  "Just for you ✨"
 ];
-let i=0;
-let t=document.getElementById("text");
 
-function show(){
- if(i<msg.length){
-  t.style.opacity=0;
-  setTimeout(()=>{
-   t.innerHTML=msg[i];
-   t.style.opacity=1;
-   i++;
-  },500);
-  setTimeout(show,2500);
- } else {
-  window.location="second.html";
- }
+let i = 0;
+let text = document.getElementById("text");
+
+function showText() {
+  if (i < messages.length) {
+    text.classList.remove("show");
+
+    setTimeout(() => {
+      text.innerHTML = messages[i];
+      text.classList.add("show");
+      i++;
+    }, 800);
+
+    setTimeout(showText, 3000);
+  } else {
+    window.location.href = "second.html";
+  }
 }
-show();
+
+showText();
+
+/* particles */
+for (let i = 0; i < 40; i++) {
+  let p = document.createElement("div");
+  p.className = "particle";
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.animationDuration = (5 + Math.random() * 5) + "s";
+  document.body.appendChild(p);
+}
 </script>
+
 </body>
 </html>
